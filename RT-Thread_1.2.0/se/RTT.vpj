@@ -1,0 +1,372 @@
+<!DOCTYPE Project SYSTEM "http://www.slickedit.com/dtd/vse/10.0/vpj.dtd">
+<Project
+	Version="10.0"
+	VendorName="SlickEdit"
+	TemplateName="GNU C/C++"
+	WorkingDir="."
+	BuildSystem="vsbuild">
+	<Config
+		Name="Debug"
+		Type="gnuc"
+		DebugCallbackName="gdb"
+		Version="1"
+		OutputFile="%bdRTT.exe"
+		CompilerConfigName="Latest Version">
+		<Menu>
+			<Target
+				Name="Compile"
+				MenuCaption="&amp;Compile"
+				Dialog="_gnuc_options_form Compile"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				OutputExts="*.o"
+				SaveOption="SaveCurrent"
+				RunFromDir="%rw">
+				<Exec CmdLine='g++ -c %xup  %defd -g -o "%bd%n%oe" %i "%f"'/>
+			</Target>
+			<Target
+				Name="Link"
+				MenuCaption="&amp;Link"
+				ShowOnMenu="Never"
+				Dialog="_gnuc_options_form Link"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveCurrent"
+				RunFromDir="%rw">
+				<Exec CmdLine='g++ %xup -g -o "%o" %f %libs'/>
+			</Target>
+			<Target
+				Name="Build"
+				MenuCaption="&amp;Build"
+				Dialog="_gnuc_options_form Compile"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t build'/>
+			</Target>
+			<Target
+				Name="Rebuild"
+				MenuCaption="&amp;Rebuild"
+				Dialog="_gnuc_options_form Compile"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t rebuild'/>
+			</Target>
+			<Target
+				Name="Debug"
+				MenuCaption="&amp;Debug"
+				Dialog="_gnuc_options_form Run/Debug"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveNone"
+				RunFromDir="%rw">
+				<Exec CmdLine='vsdebugio -prog "%o"'/>
+			</Target>
+			<Target
+				Name="Execute"
+				MenuCaption="E&amp;xecute"
+				Dialog="_gnuc_options_form Run/Debug"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%o"'/>
+			</Target>
+			<Target
+				Name="dash"
+				MenuCaption="-"
+				Deletable="0">
+				<Exec/>
+			</Target>
+			<Target
+				Name="GNU C Options"
+				MenuCaption="GNU C &amp;Options..."
+				ShowOnMenu="HideIfNoCmdLine"
+				Deletable="0"
+				SaveOption="SaveNone">
+				<Exec
+					CmdLine="gnucoptions"
+					Type="Slick-C"/>
+			</Target>
+		</Menu>
+		<List Name="GNUC Options">
+			<Item
+				Name="LinkerOutputType"
+				Value="Executable"/>
+		</List>
+	</Config>
+	<Config
+		Name="Release"
+		Type="gnuc"
+		DebugCallbackName="gdb"
+		Version="1"
+		OutputFile="%bdRTT.exe"
+		CompilerConfigName="Latest Version">
+		<Menu>
+			<Target
+				Name="Compile"
+				MenuCaption="&amp;Compile"
+				Dialog="_gnuc_options_form Compile"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				OutputExts="*.o"
+				SaveOption="SaveCurrent"
+				RunFromDir="%rw">
+				<Exec CmdLine='g++ -c %xup %defd -o "%bd%n%oe" %i "%f"'/>
+			</Target>
+			<Target
+				Name="Link"
+				MenuCaption="&amp;Link"
+				ShowOnMenu="Never"
+				Dialog="_gnuc_options_form Link"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveCurrent"
+				RunFromDir="%rw">
+				<Exec CmdLine='g++ %xup -o "%o" %f %libs'/>
+			</Target>
+			<Target
+				Name="Build"
+				MenuCaption="&amp;Build"
+				Dialog="_gnuc_options_form Compile"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t build'/>
+			</Target>
+			<Target
+				Name="Rebuild"
+				MenuCaption="&amp;Rebuild"
+				Dialog="_gnuc_options_form Compile"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t rebuild'/>
+			</Target>
+			<Target
+				Name="Debug"
+				MenuCaption="&amp;Debug"
+				Dialog="_gnuc_options_form Run/Debug"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveNone"
+				RunFromDir="%rw">
+				<Exec CmdLine='vsdebugio -prog "%o"'/>
+			</Target>
+			<Target
+				Name="Execute"
+				MenuCaption="E&amp;xecute"
+				Dialog="_gnuc_options_form Run/Debug"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%o"'/>
+			</Target>
+			<Target
+				Name="dash"
+				MenuCaption="-"
+				Deletable="0">
+				<Exec/>
+			</Target>
+			<Target
+				Name="GNU C Options"
+				MenuCaption="GNU C &amp;Options..."
+				ShowOnMenu="HideIfNoCmdLine"
+				Deletable="0"
+				SaveOption="SaveNone">
+				<Exec
+					CmdLine="gnucoptions"
+					Type="Slick-C"/>
+			</Target>
+		</Menu>
+		<List Name="GNUC Options">
+			<Item
+				Name="LinkerOutputType"
+				Value="Executable"/>
+		</List>
+	</Config>
+	<Files>
+		<Folder
+			Name="drivers"
+			Filters="">
+			<F N="../bsp/stm32f10x/drivers/board.c"/>
+			<F N="../bsp/stm32f10x/drivers/board.h"/>
+			<F N="../bsp/stm32f10x/drivers/dm9000a.c"/>
+			<F N="../bsp/stm32f10x/drivers/dm9000a.h"/>
+			<F N="../bsp/stm32f10x/drivers/ili_lcd_general.c"/>
+			<F N="../bsp/stm32f10x/drivers/ili_lcd_general.h"/>
+			<F N="../bsp/stm32f10x/drivers/led.c"/>
+			<F N="../bsp/stm32f10x/drivers/led.h"/>
+			<F N="../bsp/stm32f10x/drivers/rtc.c"/>
+			<F N="../bsp/stm32f10x/drivers/rtc.h"/>
+			<F N="../bsp/stm32f10x/drivers/sdcard.c"/>
+			<F N="../bsp/stm32f10x/drivers/sdcard.h"/>
+			<F N="../bsp/stm32f10x/drivers/ssd1289.c"/>
+			<F N="../bsp/stm32f10x/drivers/ssd1289.h"/>
+			<F N="../bsp/stm32f10x/drivers/stm32f10x_conf.h"/>
+			<F N="../bsp/stm32f10x/drivers/stm32f10x_it.c"/>
+			<F N="../bsp/stm32f10x/drivers/stm32f10x_it.h"/>
+			<F N="../bsp/stm32f10x/drivers/touch.c"/>
+			<F N="../bsp/stm32f10x/drivers/touch.h"/>
+			<F N="../bsp/stm32f10x/drivers/usart.c"/>
+			<F N="../bsp/stm32f10x/drivers/usart.h"/>
+		</Folder>
+		<Folder
+			Name="applications"
+			Filters="">
+			<F N="../bsp/stm32f10x/applications/application.c"/>
+			<F N="../bsp/stm32f10x/applications/startup.c"/>
+		</Folder>
+		<Folder
+			Name="Libraries"
+			Filters="">
+			<Folder
+				Name="CMSIS"
+				Filters="">
+				<F N="../bsp/stm32f10x/Libraries/CMSIS/CM3/CoreSupport/core_cm3.c"/>
+				<F N="../bsp/stm32f10x/Libraries/CMSIS/CM3/CoreSupport/core_cm3.h"/>
+				<F N="../bsp/stm32f10x/Libraries/CMSIS/CM3/DeviceSupport/ST/STM32F10x/stm32f10x.h"/>
+				<F N="../bsp/stm32f10x/Libraries/CMSIS/CM3/DeviceSupport/ST/STM32F10x/system_stm32f10x.c"/>
+				<F N="../bsp/stm32f10x/Libraries/CMSIS/CM3/DeviceSupport/ST/STM32F10x/system_stm32f10x.h"/>
+			</Folder>
+			<Folder
+				Name="STM32F10x_StdPeriph_Driver"
+				Filters="">
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/src/misc.c"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/inc/misc.h"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_adc.c"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/inc/stm32f10x_adc.h"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_bkp.c"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/inc/stm32f10x_bkp.h"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_can.c"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/inc/stm32f10x_can.h"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_cec.c"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/inc/stm32f10x_cec.h"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_crc.c"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/inc/stm32f10x_crc.h"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_dac.c"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/inc/stm32f10x_dac.h"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_dbgmcu.c"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/inc/stm32f10x_dbgmcu.h"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_dma.c"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/inc/stm32f10x_dma.h"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_exti.c"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/inc/stm32f10x_exti.h"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_flash.c"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/inc/stm32f10x_flash.h"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_fsmc.c"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/inc/stm32f10x_fsmc.h"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_gpio.c"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/inc/stm32f10x_gpio.h"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_i2c.c"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/inc/stm32f10x_i2c.h"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_iwdg.c"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/inc/stm32f10x_iwdg.h"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_pwr.c"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/inc/stm32f10x_pwr.h"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_rcc.c"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/inc/stm32f10x_rcc.h"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_rtc.c"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/inc/stm32f10x_rtc.h"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_sdio.c"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/inc/stm32f10x_sdio.h"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_spi.c"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/inc/stm32f10x_spi.h"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/inc/stm32f10x_tim.h"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_usart.c"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/inc/stm32f10x_usart.h"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_wwdg.c"/>
+				<F N="../bsp/stm32f10x/Libraries/STM32F10x_StdPeriph_Driver/inc/stm32f10x_wwdg.h"/>
+			</Folder>
+		</Folder>
+		<Folder
+			Name="kernel"
+			Filters="">
+			<F N="../src/clock.c"/>
+			<F N="../src/device.c"/>
+			<F N="../src/idle.c"/>
+			<F N="../src/ipc.c"/>
+			<F N="../src/irq.c"/>
+			<F N="../src/kservice.c"/>
+			<F N="../src/mem.c"/>
+			<F N="../src/memheap.c"/>
+			<F N="../src/mempool.c"/>
+			<F N="../src/module.c"/>
+			<F N="../src/module.h"/>
+			<F N="../src/object.c"/>
+			<F N="../src/scheduler.c"/>
+			<F N="../src/slab.c"/>
+			<F N="../src/thread.c"/>
+			<F N="../src/timer.c"/>
+		</Folder>
+		<Folder
+			Name="components"
+			Filters="">
+			<Folder
+				Name="comdrivers"
+				Filters=""></Folder>
+			<Folder
+				Name="finsh"
+				Filters="">
+				<F N="../components/finsh/cmd.c"/>
+				<F N="../components/finsh/finsh.h"/>
+				<F N="../components/finsh/finsh_compiler.c"/>
+				<F N="../components/finsh/finsh_error.c"/>
+				<F N="../components/finsh/finsh_error.h"/>
+				<F N="../components/finsh/finsh_heap.c"/>
+				<F N="../components/finsh/finsh_heap.h"/>
+				<F N="../components/finsh/finsh_init.c"/>
+				<F N="../components/finsh/finsh_node.c"/>
+				<F N="../components/finsh/finsh_node.h"/>
+				<F N="../components/finsh/finsh_ops.c"/>
+				<F N="../components/finsh/finsh_ops.h"/>
+				<F N="../components/finsh/finsh_parser.c"/>
+				<F N="../components/finsh/finsh_parser.h"/>
+				<F N="../components/finsh/finsh_token.c"/>
+				<F N="../components/finsh/finsh_token.h"/>
+				<F N="../components/finsh/finsh_var.c"/>
+				<F N="../components/finsh/finsh_var.h"/>
+				<F N="../components/finsh/finsh_vm.c"/>
+				<F N="../components/finsh/finsh_vm.h"/>
+				<F N="../components/finsh/msh.c"/>
+				<F N="../components/finsh/msh.h"/>
+				<F N="../components/finsh/msh_cmd.c"/>
+				<F N="../components/finsh/shell.c"/>
+				<F N="../components/finsh/shell.h"/>
+				<F N="../components/finsh/symbol.c"/>
+			</Folder>
+			<Folder
+				Name="init"
+				Filters="">
+				<F N="../components/init/components.c"/>
+				<F N="../components/init/components.h"/>
+			</Folder>
+			<Folder
+				Name="dfs"
+				Filters="">
+				<Folder
+					Name="filesystems"
+					Filters=""/>
+				<Folder
+					Name="dfs_src"
+					Filters="">
+					<F N="../components/dfs/src/dfs.c"/>
+					<F N="../components/dfs/src/dfs_file.c"/>
+					<F N="../components/dfs/src/dfs_fs.c"/>
+					<F N="../components/dfs/src/dfs_posix.c"/>
+				</Folder>
+			</Folder>
+		</Folder>
+	</Files>
+</Project>
