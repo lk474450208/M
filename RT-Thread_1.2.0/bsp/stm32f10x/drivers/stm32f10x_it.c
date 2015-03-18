@@ -25,7 +25,7 @@
 #include "stm32f10x_it.h"
 #include <board.h>
 #include <rtthread.h>
-
+#include "usb_istr.h"
 /** @addtogroup Template_Project
   * @{
   */
@@ -147,6 +147,23 @@ void EXTI4_IRQHandler(void)
 /**
   * @}
   */
-
-
+/*******************************************************************************
+* Function Name  : USB_LP_CAN1_RX0_IRQHandler
+* Description    : This function handles External lines 9 to 5 interrupt request.
+* Input          : None
+* Output         : None
+* Return         : None
+*******************************************************************************/
+void USB_LP_CAN1_RX0_IRQHandler(void)
+{   
+	rt_interrupt_enter();
+  USB_Istr();
+	rt_interrupt_leave();
+}
+void USBWakeUp_IRQHandler(void)
+{
+	rt_interrupt_enter();
+  EXTI_ClearITPendingBit(EXTI_Line18);
+	rt_interrupt_leave();
+}
 /******************* (C) COPYRIGHT 2009 STMicroelectronics *****END OF FILE****/

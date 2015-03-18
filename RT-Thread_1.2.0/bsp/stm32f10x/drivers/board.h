@@ -19,7 +19,10 @@
 #include "stm32f10x.h"
 
 /* board configuration */
-
+#include "usb_lib.h"
+#include "hw_config.h"
+#include "usb_pwr.h"
+#include "usart.h"
 /* whether use board external SRAM memory */
 // <e>Use external SRAM memory on the board
 // 	<i>Enable External SRAM memory
@@ -41,7 +44,7 @@
 #define RT_USING_UART1
 #define RT_USING_UART2
 #define RT_USING_UART3
-
+void rt_hw_board_init(void);
 #endif /* __BOARD_H__ */
 
 // <<< Use Configuration Wizard in Context Menu >>>

@@ -1,20 +1,20 @@
 [Global]
 CurrentProject=RTT.vpj
 [ProjectDates]
-RTT.vpj=20150316091513488
+RTT.vpj=20150318130820852
 [ActiveConfig]
 RTT.vpj=Debug
 [TreeExpansion2]
 -@ RTT.vpj
-  + drivers
-  + applications
+  - drivers
+  - applications
   + Libraries
     + CMSIS
     + STM32F10x_StdPeriph_Driver
   + kernel
-  - components
+  + components
     + comdrivers
-    - dfs
+    + dfs
       + dfs_src
       - filesystems
     + finsh

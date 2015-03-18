@@ -15,7 +15,7 @@
  */
 
 #include "stm32f10x.h"
-#include "usart.h"
+
 #include "board.h"
 
 #include <rtdevice.h>
