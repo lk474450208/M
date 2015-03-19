@@ -199,6 +199,31 @@
 		<Folder
 			Name="drivers"
 			Filters="">
+			<Folder
+				Name="lcd"
+				Filters="">
+				<F N="../bsp/stm32f10x/drivers/LCD/font.h"/>
+				<F N="../bsp/stm32f10x/drivers/LCD/lcd.c"/>
+				<F N="../bsp/stm32f10x/drivers/LCD/lcd.h"/>
+			</Folder>
+			<Folder
+				Name="spi"
+				Filters="">
+				<F N="../bsp/stm32f10x/drivers/SPI/spi.c"/>
+				<F N="../bsp/stm32f10x/drivers/SPI/spi.h"/>
+			</Folder>
+			<Folder
+				Name="usb_driver"
+				Filters="">
+				<F N="../bsp/stm32f10x/drivers/USB_Driver/src/hw_config.c"/>
+				<F N="../bsp/stm32f10x/drivers/USB_Driver/src/main.c"/>
+				<F N="../bsp/stm32f10x/drivers/USB_Driver/src/stm32f10x_it.c"/>
+				<F N="../bsp/stm32f10x/drivers/USB_Driver/src/usb_desc - 副本.c"/>
+				<F N="../bsp/stm32f10x/drivers/USB_Driver/src/usb_desc.c"/>
+				<F N="../bsp/stm32f10x/drivers/USB_Driver/src/usb_istr.c"/>
+				<F N="../bsp/stm32f10x/drivers/USB_Driver/src/usb_prop.c"/>
+				<F N="../bsp/stm32f10x/drivers/USB_Driver/src/usb_pwr.c"/>
+			</Folder>
 			<F N="../bsp/stm32f10x/drivers/board.c"/>
 			<F N="../bsp/stm32f10x/drivers/board.h"/>
 			<F N="../bsp/stm32f10x/drivers/dm9000a.c"/>
@@ -315,7 +340,8 @@
 			Filters="">
 			<Folder
 				Name="comdrivers"
-				Filters=""></Folder>
+				Filters="">
+			</Folder>
 			<Folder
 				Name="finsh"
 				Filters="">

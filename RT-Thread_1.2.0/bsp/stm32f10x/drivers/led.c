@@ -13,7 +13,7 @@
  */
 #include <rtthread.h>
 #include <stm32f10x.h>
-
+#include "led.h"
 // led define
 #ifdef STM32_SIMULATOR
 #define led1_rcc                    RCC_APB2Periph_GPIOA
@@ -26,8 +26,8 @@
 
 #else
 
-#define led1_rcc                    RCC_APB2Periph_GPIOE
-#define led1_gpio                   GPIOE
+#define led1_rcc                    RCC_APB2Periph_GPIOA
+#define led1_gpio                   GPIOA
 #define led1_pin                    (GPIO_Pin_2)
 
 #define led2_rcc                    RCC_APB2Periph_GPIOE
@@ -35,7 +35,18 @@
 #define led2_pin                    (GPIO_Pin_3)
 
 #endif // led define #ifdef STM32_SIMULATOR
-
+void rt_sysled_entry(void *parameter)
+{
+	while(1)
+	{
+		rt_hw_led_on(0);
+		rt_kprintf("sysled on! \n");
+		rt_thread_delay(100);
+		rt_hw_led_off(0);
+		rt_thread_delay(100);
+		rt_kprintf("sysled off! \n");
+	}
+}
 void rt_hw_led_init(void)
 {
     GPIO_InitTypeDef GPIO_InitStructure;
@@ -48,8 +59,8 @@ void rt_hw_led_init(void)
     GPIO_InitStructure.GPIO_Pin   = led1_pin;
     GPIO_Init(led1_gpio, &GPIO_InitStructure);
 
-    GPIO_InitStructure.GPIO_Pin   = led2_pin;
-    GPIO_Init(led2_gpio, &GPIO_InitStructure);
+//    GPIO_InitStructure.GPIO_Pin   = led2_pin;
+//    GPIO_Init(led2_gpio, &GPIO_InitStructure);
 }
 
 void rt_hw_led_on(rt_uint32_t n)
